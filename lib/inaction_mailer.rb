@@ -29,7 +29,7 @@ module InactionMailer
     end
 
     def ensure_output_dir_exists
-      File.mkdir output_dir unless File.directory? output_dir
+      Dir.mkdir output_dir unless File.directory? output_dir
     end
   end
 

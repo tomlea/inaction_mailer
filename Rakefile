@@ -17,11 +17,11 @@ end
 
 spec = Gem::Specification.new do |s|
   s.name        = %q{inaction_mailer}
-  s.version     = "0.2"
+  s.version     = "0.3"
   s.summary     = %q{An ActionMailer delivery mechanism to save mails as files in a directory.}
   s.description = %q{An ActionMailer delivery mechanism to save mails as files in a directory.}
 
-  s.files        = FileList['[A-Z]*', 'lib/**/*.rb', 'test/**/*.rb']
+  s.files        = FileList['[A-Z]*', 'lib/**/*.rb', 'test/**/*.rb', 'rails/*']
   s.require_path = 'lib'
   s.test_files   = Dir[*['test/**/*_test.rb']]
 

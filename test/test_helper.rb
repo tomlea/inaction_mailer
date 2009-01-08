@@ -48,11 +48,16 @@ class Test::Unit::TestCase
   
   def with_stubbed_file_store(fake_file_system = {}, &block)
     file_class = File
+    dir_class = Dir
     Object.send :remove_const, :File
     Object.const_set(:File, FileSystemStub.new(fake_file_system))
+    Object.send :remove_const, :Dir
+    Object.const_set(:Dir, File)
     yield
   ensure
     Object.send :remove_const, :File
     Object.const_set(:File, file_class)
+    Object.send :remove_const, :Dir
+    Object.const_set(:Dir, dir_class)
   end
 end
