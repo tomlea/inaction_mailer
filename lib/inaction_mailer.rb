@@ -9,7 +9,7 @@ module InactionMailer
 
   class << self
     def hook!
-      ActionMailer::Base.__send__(:include, self)
+      ActionMailer::Base.__send__(:include, self) if defined? ActionMailer::Base
     end
 
     def new_mail_file(&block)
@@ -34,3 +34,5 @@ module InactionMailer
   end
 
 end
+
+InactionMailer.hook!
