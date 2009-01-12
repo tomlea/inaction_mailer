@@ -17,7 +17,7 @@ end
 
 spec = Gem::Specification.new do |s|
   s.name        = %q{inaction_mailer}
-  s.version     = "0.5"
+  s.version     = "0.6"
   s.summary     = %q{An ActionMailer delivery mechanism to save mails as files in a directory.}
   s.description = %q{An ActionMailer delivery mechanism to save mails as files in a directory.}
 
