@@ -30,4 +30,4 @@ class InactionMailer < Mail::FileDelivery
 
 end
 
-ActionMailer::Base.add_delivery_method :inaction_file, InactionMailer
+ActionMailer::Base.add_delivery_method :inaction_file, InactionMailer if defined? ActionMailer
