@@ -1,17 +1,12 @@
-module InactionMailer
+class InactionMailer < Mail::FileDelivery
 
-  def perform_delivery_inaction_file(mail)
-    mail.ready_to_send
+  def deliver!(mail)
     InactionMailer.new_mail_file do |file|
       file.write mail.encoded
     end
   end
 
   class << self
-    def hook!
-      ActionMailer::Base.__send__(:include, self) if defined? ActionMailer::Base
-    end
-
     def new_mail_file(&block)
       ensure_output_dir_exists
       id = 0
@@ -35,4 +30,4 @@ module InactionMailer
 
 end
 
-InactionMailer.hook!
+ActionMailer::Base.add_delivery_method :inaction_file, InactionMailer if defined? ActionMailer

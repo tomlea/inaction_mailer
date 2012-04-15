@@ -1,12 +1,16 @@
 ## Usage:
 
-Add the following lines to the appropriate `config/environments/*.rb` file:
+Add the following lines to your Gemfile:
 
-    config.gem "inaction_mailer", :lib => 'inaction_mailer/force_load', :source => 'http://gemcutter.org'
+    gem "inaction_mailer"
+
+Then bundle and activate it in development.rb:
+
+    config.action_mailer.delivery_method = :inaction_file
 
 As an extra step, for the sake of paranoia, you can check the delivery mechanism with:
 
-    ./script/runner 'p ActionMailer::Base.delivery_method'
+    rails runner 'p ActionMailer::Base.delivery_method'
 
 Now when you app send e-mails, it will deliver them to `RAILS_ROOT/tmp/sent_mails/mail.*.txt`.
 
